@@ -1,9 +1,6 @@
 import { test, expect } from '@playwright/test';
 
 
-test('強制失敗テスト', async () => {
-  expect(1).toBe(2);
-});
 test('商品をカートに追加できる', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
   await page.getByPlaceholder('Username').fill('standard_user');
