@@ -6,7 +6,7 @@ test('商品をカートに追加できる', async ({ page }) => {
   await page.getByPlaceholder('Password').fill('secret_sauce');
   await page.getByRole('button', { name: 'Login' }).click();
 
-  await page.getByText('あ').click();
+  await page.getByText('Sauce Labs Backpack').click();
   await page.getByRole('button', { name: 'Add to cart' }).click();
 
   await expect(page.getByText('1')).toBeVisible(); // カートの数字
