@@ -1,6 +1,6 @@
 // tests/addTodo.spec.ts
 import { test, expect } from '@playwright/test';
-import { TodoPage } from '../pages/todoPage';
+import { TodoPage } from '../../pages/todoPage';
 
 test('正常追加', async ({ page }) => {
   const todo = new TodoPage(page);

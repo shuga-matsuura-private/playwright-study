@@ -1,6 +1,6 @@
 // tests/deleteTodo.spec.ts
 import { test, expect } from '@playwright/test';
-import { TodoPage } from '../pages/todoPage';
+import { TodoPage } from '../../pages/todoPage';
 
 test('単体削除', async ({ page }) => {
   const todo = new TodoPage(page);

@@ -1,6 +1,6 @@
 // tests/toggleTodo.spec.ts
 import { test, expect } from '@playwright/test';
-import { TodoPage } from '../pages/todoPage';
+import { TodoPage } from '../../pages/todoPage';
 
 test('Active → Completed', async ({ page }) => {
   const todo = new TodoPage(page);
