@@ -36,6 +36,7 @@ test('CH-03 Last Name空でエラー', async ({ page }) => {
   const checkout = new CheckoutPage(page);
 
   await cart.checkout();
+  await expect(page).toHaveURL(/checkout-step-one/); 
   await checkout.fillInfo('Shuya', '', '1500001');
   await checkout.continue();
   await expect(checkout.errorMessage).toBeVisible();
