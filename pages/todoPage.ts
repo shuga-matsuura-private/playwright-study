@@ -43,8 +43,9 @@ export class TodoPage {
   }
 
   async filter(type: 'All' | 'Active' | 'Completed') {
-    await this.page.getByText(type).click();
-  }
+  await this.page.getByRole('link', { name: type }).click();
+}
+
 
   async reload() {
     await this.page.reload();
