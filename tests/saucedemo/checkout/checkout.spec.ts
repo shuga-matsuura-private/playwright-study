@@ -26,6 +26,7 @@ test('CH-02 First Name空でエラー', async ({ page }) => {
   const checkout = new CheckoutPage(page);
 
   await cart.checkout();
+  await expect(page).toHaveURL(/checkout-step-one/);
   await checkout.fillInfo('', 'QA', '1500001');
   await checkout.continue();
   await expect(checkout.errorMessage).toBeVisible();
@@ -47,6 +48,7 @@ test('CH-04 Postal Code空でエラー', async ({ page }) => {
   const checkout = new CheckoutPage(page);
 
   await cart.checkout();
+  await expect(page).toHaveURL(/checkout-step-one/);
   await checkout.fillInfo('Shuya', 'QA', '');
   await checkout.continue();
   await expect(checkout.errorMessage).toBeVisible();
@@ -57,6 +59,7 @@ test('CH-05 正常入力でOverviewへ遷移', async ({ page }) => {
   const checkout = new CheckoutPage(page);
 
   await cart.checkout();
+  await expect(page).toHaveURL(/checkout-step-one/);
   await checkout.fillInfo('Shuya', 'QA', '1500001');
   await checkout.continue();
   await expect(page).toHaveURL(/checkout-step-two/);
@@ -67,6 +70,7 @@ test('CH-06 Overviewの商品情報が正しい', async ({ page }) => {
   const checkout = new CheckoutPage(page);
 
   await cart.checkout();
+  await expect(page).toHaveURL(/checkout-step-one/);
   await checkout.fillInfo('Shuya', 'QA', '1500001');
   await checkout.continue();
 
@@ -79,6 +83,7 @@ test('CH-07 Finishで完了画面へ遷移', async ({ page }) => {
   const checkout = new CheckoutPage(page);
 
   await cart.checkout();
+  await expect(page).toHaveURL(/checkout-step-one/);
   await checkout.fillInfo('Shuya', 'QA', '1500001');
   await checkout.continue();
   await checkout.finish();
