@@ -19,6 +19,9 @@ export class InventoryPage {
   }
 
   async gotoCart() {
-    await this.page.locator('.shopping_cart_link').click();
+    const cartLink = this.page.locator('.shopping_cart_link');
+    await cartLink.waitFor({ state: 'visible' });   // ← 追加
+    await cartLink.click();                         // ← これが確実に押される
+    await this.page.waitForURL(/cart\.html/);       // ← 追加（最重要）
   }
 }
