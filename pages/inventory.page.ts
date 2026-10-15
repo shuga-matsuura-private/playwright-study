@@ -23,5 +23,6 @@ export class InventoryPage {
     await cartLink.waitFor({ state: 'visible' });   // ← 追加
     await cartLink.click();                         // ← これが確実に押される
     await this.page.waitForURL(/cart\.html/);       // ← 追加（最重要）
+    await this.page.waitForLoadState('networkidle'); 
   }
 }

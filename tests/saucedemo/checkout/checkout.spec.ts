@@ -13,6 +13,7 @@ test.beforeEach(async ({ page }) => {
   const inventory = new InventoryPage(page);
   await inventory.addItem(0);
   await inventory.gotoCart();
+  await expect(page).toHaveURL(/cart\.html/);
 });
 
 test('CH-01 Checkout開始で情報入力画面へ遷移', async ({ page }) => {

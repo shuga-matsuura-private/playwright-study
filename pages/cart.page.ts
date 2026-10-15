@@ -19,9 +19,12 @@ export class CartPage {
   }
 
   async checkout() {
-  await this.checkoutButton.waitFor({ state: 'visible' });
   await this.checkoutButton.click();
-  await this.page.waitForURL(/checkout-step-one/);  // ← これが最重要
+  await this.page.waitForURL(/checkout-step-one/);
   }
 
-}
+  }
+
+
+
+
